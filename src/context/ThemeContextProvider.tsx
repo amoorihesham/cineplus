@@ -1,5 +1,11 @@
-import { useEffect, useState } from 'react';
-import ThemeContext from './ThemeContext';
+import { createContext, useEffect, useState } from 'react';
+
+export const contextDefaultValue = {
+	theme: 'light',
+	toggleTheme: (_newTheme: 'light' | 'dark') => {},
+};
+
+export const ThemeContext = createContext(contextDefaultValue);
 
 const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const savedTheme: string | null = localStorage.getItem('theme');

@@ -1,29 +1,20 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import ThemeContext from '../../../context/ThemeContext';
-import { HomeIcon, PhotoIcon, TagIcon } from '@heroicons/react/16/solid';
+import {
+	ArrowLeftEndOnRectangleIcon,
+	ArrowRightEndOnRectangleIcon,
+	HomeIcon,
+	PhotoIcon,
+	TagIcon,
+} from '@heroicons/react/16/solid';
 import logo from '../../../assets/logo.png';
-import { signInWithPopup, signOut } from 'firebase/auth';
-import { auth, googleProvider } from '../../../config/firebase';
+
+import { AuthContext, ThemeContext } from '../../../context';
+import { authContextType } from '../../../types';
 
 const Navbar = () => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
-
-	const signInBTN = async () => {
-		try {
-			const data = await signInWithPopup(auth, googleProvider);
-			console.log(data.user);
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	const signOutBTN = async () => {
-		try {
-			await signOut(auth);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	const { user, signIn, logOut } = useContext(AuthContext) as authContextType;
 
 	return (
 		<nav className='bg-slate-300 border-gray-200 dark:bg-navy'>
@@ -66,23 +57,23 @@ const Navbar = () => {
 								Series
 							</Link>
 						</li>
-						<li>
-							{auth?.currentUser ? (
-								<button
-									className='bg-primary-900 text-white px-2 py-1 rounded-lg font-semiBold text-sm hover:bg-primary-100'
-									onClick={signOutBTN}
-								>
-									Sign Out
-								</button>
-							) : (
-								<button
-									className='bg-primary-900 text-white px-2 py-1 rounded-lg font-semiBold text-sm hover:bg-primary-100'
-									onClick={signInBTN}
-								>
-									Sign In
-								</button>
-							)}
-						</li>
+						{user ? (
+							<button
+								onClick={logOut}
+								className='bg-red-500 hover:bg-red-400 transition-colors duration-300 px-2 py-1 text-white font-semibold text-sm rounded-md flex items-center gap-1 justify-center'
+							>
+								<ArrowRightEndOnRectangleIcon className='h-4' />
+								Signout
+							</button>
+						) : (
+							<button
+								onClick={signIn}
+								className='bg-blue-500 hover:bg-blue-400 transition-colors duration-300 px-2 py-1 text-white font-semibold text-sm rounded-md flex items-center gap-1 justify-center'
+							>
+								<ArrowLeftEndOnRectangleIcon className='h-4' />
+								Google Login
+							</button>
+						)}
 						<li>
 							<label className='inline-flex items-center cursor-pointer'>
 								<input

@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import ThemeContextProvider from './context/ThemeContextProvider.tsx';
 import App from './App.tsx';
 import './index.css';
+import AuthContextProvider from './context/AuthContext.tsx';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -17,11 +18,13 @@ const queryClient = new QueryClient({
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<ThemeContextProvider>
-			<QueryClientProvider client={queryClient}>
-				<ReactQueryDevtools initialIsOpen={false} />
-				<App />
-			</QueryClientProvider>
-		</ThemeContextProvider>
+		<AuthContextProvider>
+			<ThemeContextProvider>
+				<QueryClientProvider client={queryClient}>
+					<ReactQueryDevtools initialIsOpen={false} />
+					<App />
+				</QueryClientProvider>
+			</ThemeContextProvider>
+		</AuthContextProvider>
 	</React.StrictMode>
 );

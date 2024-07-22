@@ -5,7 +5,7 @@ import { Spinner } from '../components';
 
 // Lazy loading pages to improve load times
 const Home = lazy(() => import('../pages/Home'));
-const Categories = lazy(() => import('../pages/Categories'));
+const Popular = lazy(() => import('../pages/Popular'));
 const Series = lazy(() => import('../pages/Series'));
 const MoviePage = lazy(() => import('../pages/MoviePage'));
 
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
 				),
 			},
 			{
-				path: '/categories',
+				path: '/popular',
 				element: (
 					<Suspense fallback={<Spinner />}>
-						<Categories />
+						<Popular />
 					</Suspense>
 				),
 			},

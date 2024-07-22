@@ -3,9 +3,27 @@ import { Link } from 'react-router-dom';
 import ThemeContext from '../../../context/ThemeContext';
 import { HomeIcon, PhotoIcon, TagIcon } from '@heroicons/react/16/solid';
 import logo from '../../../assets/logo.png';
+import { signInWithPopup, signOut } from 'firebase/auth';
+import { auth, googleProvider } from '../../../config/firebase';
 
 const Navbar = () => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
+
+	const signInBTN = async () => {
+		try {
+			const data = await signInWithPopup(auth, googleProvider);
+			console.log(data.user);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const signOutBTN = async () => {
+		try {
+			await signOut(auth);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<nav className='bg-slate-300 border-gray-200 dark:bg-navy'>
@@ -18,7 +36,7 @@ const Navbar = () => {
 						</span>
 					</Link>
 
-					<ul className='hidden md:flex md:flex-row font-medium md:space-x-8 rtl:space-x-reverse text-black dark:text-white'>
+					<ul className='hidden md:flex md:flex-row font-medium items-center md:space-x-8 rtl:space-x-reverse text-black dark:text-white'>
 						<li>
 							<Link
 								to='/'
@@ -30,12 +48,12 @@ const Navbar = () => {
 						</li>
 						<li>
 							<Link
-								to='/categories'
+								to='/popular'
 								className='flex items-center justify-center  hover:text-purple transition-colors duration-300'
 								aria-current='page'
 							>
 								<TagIcon className='h-6' />
-								Categories
+								Popular
 							</Link>
 						</li>
 						<li>
@@ -47,6 +65,23 @@ const Navbar = () => {
 								<PhotoIcon className='h-6' />
 								Series
 							</Link>
+						</li>
+						<li>
+							{auth?.currentUser ? (
+								<button
+									className='bg-primary-900 text-white px-2 py-1 rounded-lg font-semiBold text-sm hover:bg-primary-100'
+									onClick={signOutBTN}
+								>
+									Sign Out
+								</button>
+							) : (
+								<button
+									className='bg-primary-900 text-white px-2 py-1 rounded-lg font-semiBold text-sm hover:bg-primary-100'
+									onClick={signInBTN}
+								>
+									Sign In
+								</button>
+							)}
 						</li>
 						<li>
 							<label className='inline-flex items-center cursor-pointer'>

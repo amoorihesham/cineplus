@@ -11,7 +11,7 @@ const MoviePage = lazy(() => import('../pages/MoviePage'));
 
 const router = createBrowserRouter([
 	{
-		path: '/get-started',
+		path: '/',
 		element: <IntroLayout />,
 	},
 	{
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 		element: <MainLayout />,
 		children: [
 			{
-				path: '/',
+				path: '/top-rated',
 				index: true,
 				element: (
 					<Suspense fallback={<Spinner />}>

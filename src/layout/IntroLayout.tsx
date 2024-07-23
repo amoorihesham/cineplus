@@ -9,7 +9,7 @@ const IntroLayout = () => {
 					Here You Can Find Movies And Seriess From All diffrent Genres.
 				</p>
 				<Link
-					to={'/'}
+					to={'/top-rated'}
 					className='bg-lightNavy p-1 rounded-md mt-3 w-fit mx-auto block hover:bg-navy transition-colors duration-500'
 				>
 					Get Started

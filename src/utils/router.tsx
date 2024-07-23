@@ -1,15 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { MainLayout } from '../layout';
 import { lazy, Suspense } from 'react';
 import { Spinner } from '../components';
+import { IntroLayout, MainLayout } from '../layout';
 
 // Lazy loading pages to improve load times
-const Home = lazy(() => import('../pages/Home'));
+const TopRated = lazy(() => import('../pages/TopRated'));
 const Popular = lazy(() => import('../pages/Popular'));
 const Series = lazy(() => import('../pages/Series'));
 const MoviePage = lazy(() => import('../pages/MoviePage'));
 
 const router = createBrowserRouter([
+	{
+		path: '/get-started',
+		element: <IntroLayout />,
+	},
 	{
 		path: '/',
 		element: <MainLayout />,
@@ -19,7 +23,7 @@ const router = createBrowserRouter([
 				index: true,
 				element: (
 					<Suspense fallback={<Spinner />}>
-						<Home />
+						<TopRated />
 					</Suspense>
 				),
 			},

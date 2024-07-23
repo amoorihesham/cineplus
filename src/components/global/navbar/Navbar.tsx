@@ -34,7 +34,7 @@ const Navbar = () => {
 								className='flex items-center justify-center hover:text-purple transition-colors duration-300'
 								aria-current='page'
 							>
-								<HomeIcon className='h-6' /> Home
+								<HomeIcon className='h-6' /> Top Rated
 							</Link>
 						</li>
 						<li>

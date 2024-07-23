@@ -1,7 +1,7 @@
 import { ListItterable } from '../components';
 import useTopRated from '../hooks/useTopRated';
 
-const Home = () => {
+const TopRated = () => {
 	const {
 		data: { data },
 
@@ -23,4 +23,4 @@ const Home = () => {
 	);
 };
 
-export default Home;
+export default TopRated;

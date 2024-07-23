@@ -44,7 +44,7 @@ const router = createBrowserRouter([
 				),
 			},
 			{
-				path: 'movie/:id',
+				path: '/movie/:id',
 				element: (
 					<Suspense fallback={<Spinner />}>
 						<MoviePage />

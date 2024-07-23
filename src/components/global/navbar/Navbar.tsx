@@ -30,7 +30,7 @@ const Navbar = () => {
 					<ul className='hidden md:flex md:flex-row font-medium items-center md:space-x-8 rtl:space-x-reverse text-black dark:text-white'>
 						<li>
 							<Link
-								to='/'
+								to='/top-rated'
 								className='flex items-center justify-center hover:text-purple transition-colors duration-300'
 								aria-current='page'
 							>

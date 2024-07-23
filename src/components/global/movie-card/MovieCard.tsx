@@ -23,7 +23,7 @@ const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 					{movie.overview}
 				</p>
 				<Link
-					to={`movie/${movie.id}`}
+					to={`/movie/${movie.id}`}
 					className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-navy rounded-lg hover:bg-lightNavy focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-navy dark:hover:bg-lightNavy dark:focus:ring-lightNavy'
 				>
 					Details

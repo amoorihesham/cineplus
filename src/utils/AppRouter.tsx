@@ -1,62 +1,58 @@
 import { lazy, Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { MainLayout } from '../layout';
-import { Spinner } from '../components';
+import { createBrowserRouter } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Spinner } from '../components';
+
+const MainLayout = lazy(() => import('../layout/MainLayout'));
 const TopRated = lazy(() => import('../pages/TopRated'));
 const Popular = lazy(() => import('../pages/Popular'));
 const Series = lazy(() => import('../pages/Series'));
 const MoviePage = lazy(() => import('../pages/MoviePage'));
 
-const AppRouter = () => {
-	return (
-		<AnimatePresence mode='wait'>
-			<Routes>
-				<Route path='/' element={<MainLayout />}>
-					<Route
-						index={true}
-						element={
-							<Suspense fallback={<Spinner />}>
-								<TopRated />
-							</Suspense>
-						}
-					/>
-					<Route
-						path={'/top-rated'}
-						element={
-							<Suspense fallback={<Spinner />}>
-								<TopRated />
-							</Suspense>
-						}
-					/>
-					<Route
-						path={'/popular'}
-						element={
-							<Suspense fallback={<Spinner />}>
-								<Popular />
-							</Suspense>
-						}
-					/>
-					<Route
-						path='/series'
-						element={
-							<Suspense fallback={<Spinner />}>
-								<Series />
-							</Suspense>
-						}
-					/>
-					<Route
-						path='/movie/:id'
-						element={
-							<Suspense fallback={<Spinner />}>
-								<MoviePage />
-							</Suspense>
-						}
-					/>
-				</Route>
-			</Routes>
-		</AnimatePresence>
-	);
-};
+const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <MainLayout />,
+		children: [
+			{
+				path: '/',
+				index: true,
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<AnimatePresence mode='wait'>
+							<TopRated />
+						</AnimatePresence>
+					</Suspense>
+				),
+			},
+			{
+				path: '/popular',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<AnimatePresence mode='wait'>
+							<Popular />
+						</AnimatePresence>
+					</Suspense>
+				),
+			},
+			{
+				path: '/series',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<Series />
+					</Suspense>
+				),
+			},
+			{
+				path: '/movie/:id',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<MoviePage />
+					</Suspense>
+				),
+			},
+		],
+	},
+]);
 
-export default AppRouter;
+export default router;

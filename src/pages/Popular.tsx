@@ -18,7 +18,7 @@ const Popular = () => {
 
 	return (
 		<motion.div
-			className='popular-page'
+			className='popular-page '
 			initial={{ x: '-100%' }}
 			animate={{ x: '0' }}
 			exit={{ y: '-100%' }}

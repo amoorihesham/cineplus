@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {
 	ArrowLeftEndOnRectangleIcon,
 	ArrowRightEndOnRectangleIcon,
-	ArrowTrendingUpIcon,
 	FireIcon,
 	Cog8ToothIcon,
 	TvIcon,
@@ -29,7 +28,7 @@ const Navbar = () => {
 					</Link>
 
 					<ul className='hidden md:flex md:flex-row font-medium items-center md:space-x-8 rtl:space-x-reverse text-white group'>
-						<li>
+						{/* <li>
 							<Link
 								to='/top-rated'
 								className='flex items-center justify-center transition-colors duration-300 group/item hover:text-primary-300'
@@ -37,7 +36,7 @@ const Navbar = () => {
 							>
 								<ArrowTrendingUpIcon className='h-6' /> Top Rated
 							</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								to='/popular'

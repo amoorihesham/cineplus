@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { IntroLayout, MainLayout } from '../layout';
+import { MainLayout } from '../layout';
 import { Spinner } from '../components';
 import { AnimatePresence } from 'framer-motion';
 const TopRated = lazy(() => import('../pages/TopRated'));
@@ -12,7 +12,7 @@ const AppRouter = () => {
 	return (
 		<AnimatePresence mode='wait'>
 			<Routes>
-				<Route path='/' element={<IntroLayout />} />
+				{/* <Route path='/' element={<IntroLayout />} /> */}
 				<Route path='/' element={<MainLayout />}>
 					<Route
 						path={'/top-rated'}

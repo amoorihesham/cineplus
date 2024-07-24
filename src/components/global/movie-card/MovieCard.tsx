@@ -1,12 +1,20 @@
 import { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { authContextType, ICardMovieTypeProps } from '../../../types';
 import { AuthContext } from '../../../context';
+import { BookOpenIcon, PlusIcon } from '@heroicons/react/16/solid';
 
 const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 	const { user } = useContext(AuthContext) as authContextType;
+
 	return (
-		<div className='max-w-sm bg-slate-300 border border-gray-200 rounded-lg shadow dark:bg-primary-100 dark:border-gray-500'>
+		<motion.div
+			className='max-w-sm  rounded-lg shadow-lg border border-primary-500 bg-shades-primary-300'
+			initial={{ opacity: 0 }}
+			whileInView={{ opacity: 1 }}
+			transition={{ delay: 0.3, duration: 0.4 }}
+		>
 			<Link to={`/movie/${movie.id}`}>
 				<img
 					className='rounded-t-lg'
@@ -17,43 +25,28 @@ const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 			</Link>
 			<div className='p-5'>
 				<Link to={`/movie/${movie.id}`}>
-					<h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-1'>
+					<h5 className='mb-2 text-2xl font-bold tracking-tight text-primary-100 line-clamp-1'>
 						{movie.title}
 					</h5>
 				</Link>
-				<p className='mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-3'>
-					{movie.overview}
-				</p>
+				<p className='mb-3 font-normal text-primary-200 line-clamp-3'>{movie.overview}</p>
 				<div className='btns flex items-center justify-between'>
 					<Link
 						to={`/movie/${movie.id}`}
-						className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-navy rounded-lg hover:bg-lightNavy focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-navy dark:hover:bg-lightNavy dark:focus:ring-lightNavy'
+						className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none bg-shades-primary-600 hover:bg-shades-primary-800 transition-colors duration-300'
 					>
+						<BookOpenIcon className='h-4 me-1' />
 						Details
-						<svg
-							className='rtl:rotate-180 w-3.5 h-3.5 ms-2'
-							aria-hidden='true'
-							xmlns='http://www.w3.org/2000/svg'
-							fill='none'
-							viewBox='0 0 14 10'
-						>
-							<path
-								stroke='currentColor'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-								strokeWidth='2'
-								d='M1 5h12m0 0L9 1m4 4L9 9'
-							/>
-						</svg>
 					</Link>
 					{user && (
-						<button className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-navy dark:hover:bg-lightNavy dark:focus:ring-lightNavy transition-colors duration-300'>
-							+ Favorites
+						<button className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none transition-colors duration-300 bg-shades-primary-600 hover:bg-shades-primary-800'>
+							<PlusIcon className='h-4 me-1' />
+							Favorites
 						</button>
 					)}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

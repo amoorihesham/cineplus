@@ -1,13 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { signInWithPopup, signOut, User } from 'firebase/auth';
 import { authContextType } from '../types';
 import { auth, googleProvider } from '../config/firebase';
-import { signInWithPopup, signOut } from 'firebase/auth';
-import firebase from 'firebase/compat/app';
 
 export const AuthContext = createContext<authContextType | null>(null);
 
 const AuthContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-	const [user, setUser] = useState<firebase.User | null>(null);
+	const [user, setUser] = useState<User | null>(null);
 
 	const signIn = async () => {
 		try {
@@ -27,7 +26,7 @@ const AuthContextProvider: React.FC<{ children: React.ReactNode }> = ({ children
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged((user) => {
 			if (user) {
-				setUser(auth.currentUser as firebase.User);
+				setUser(auth.currentUser as User);
 			} else {
 				setUser(null);
 			}

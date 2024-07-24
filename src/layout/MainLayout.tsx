@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '../components';
+import { Footer, Navbar } from '../components';
 
 const MainLayout = () => {
 	return (
 		<>
 			<Navbar />
-			<Outlet></Outlet>
+			<div className='min-h-screen flex items-center justify-center container py-pageYpadding'>
+				<Outlet></Outlet>
+			</div>
+			<Footer />
 		</>
 	);
 };

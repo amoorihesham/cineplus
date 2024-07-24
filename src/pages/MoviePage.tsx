@@ -18,7 +18,7 @@ const MoviePage = () => {
 	}
 
 	return (
-		<div className='h-full container py-pageYpadding'>
+		<div className='content'>
 			<div className='flex items-center justify-between'>
 				<h2 className='text-black dark:text-white font-bold text-3xl'>{data.title}</h2>
 				<div className='info text-white  font-semibold flex items-center justify-between gap-5'>
@@ -46,7 +46,7 @@ const MoviePage = () => {
 			<div className='flex'>
 				<div className='details text-black dark:text-white'>
 					<h4 className=' font-bold text-2xl mb-3 '>Overview.</h4>
-					<p className=' font-light line-clamp-3'>{data.overview}</p>
+					<p className=' font-light line-clamp-3 max-w-3xl'>{data.overview}</p>
 					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
 					<p className='font-bold mt-4'>
 						Release In: <span className='font-light'>{data.release_date}</span>
@@ -54,7 +54,7 @@ const MoviePage = () => {
 					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
 					<div className='companies flex items-center gap-2 mt-4'>
 						<p className='font-bold'>Production Companies:</p>
-						<div className='flex gap-2'>
+						<div className='flex gap-2 flex-wrap'>
 							{data.production_companies.map((company: IProductionCompany) => (
 								<span className='font-thin' key={company.id}>
 									{company.name},

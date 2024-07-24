@@ -15,7 +15,8 @@ const AppRouter = () => {
 				{/* <Route path='/' element={<IntroLayout />} /> */}
 				<Route path='/' element={<MainLayout />}>
 					<Route
-						path={'/top-rated'}
+						path={'top-rated'}
+						index={true}
 						element={
 							<Suspense fallback={<Spinner />}>
 								<TopRated />
@@ -23,7 +24,7 @@ const AppRouter = () => {
 						}
 					/>
 					<Route
-						path={'/popular'}
+						path={'popular'}
 						element={
 							<Suspense fallback={<Spinner />}>
 								<Popular />

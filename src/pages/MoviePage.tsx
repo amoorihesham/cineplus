@@ -42,16 +42,16 @@ const MoviePage = () => {
 					</p>
 				</div>
 			</div>
-			<hr className='w-48 h-1 mx-auto my-4 bg-navy border-0 rounded md:my-10 dark:bg-lightNavy' />
+			<hr className='w-48 h-1 mx-auto my-4 border-0 rounded md:my-10 bg-primary-800' />
 			<div className='flex'>
 				<div className='details text-black dark:text-white'>
 					<h4 className=' font-bold text-2xl mb-3 '>Overview.</h4>
 					<p className=' font-light line-clamp-3 max-w-3xl'>{data.overview}</p>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 					<p className='font-bold mt-4'>
 						Release In: <span className='font-light'>{data.release_date}</span>
 					</p>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 					<div className='companies flex items-center gap-2 mt-4'>
 						<p className='font-bold'>Production Companies:</p>
 						<div className='flex gap-2 flex-wrap'>
@@ -62,7 +62,7 @@ const MoviePage = () => {
 							))}
 						</div>
 					</div>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 
 					<div className='languages flex items-center gap-2 mt-4'>
 						<p className='font-bold'>Spoken Languages:</p>
@@ -74,15 +74,15 @@ const MoviePage = () => {
 							))}
 						</div>
 					</div>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 					<p className='font-bold mt-4'>
 						Budget: <span className='font-light'>$ {data.budget.toLocaleString()}</span>
 					</p>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 					<p className='font-bold mt-4'>
 						revenue : <span className='font-light'>$ {data.revenue.toLocaleString()}</span>
 					</p>
-					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy' />
+					<hr className='w-11/12 h-1  my-0 bg-navy border-0 rounded md:my-4 dark:bg-lightNavy bg-primary-800' />
 					<div className='genres flex items-center gap-2 mt-4'>
 						<p className='font-bold'>Genres:</p>
 						<div className='flex gap-2'>

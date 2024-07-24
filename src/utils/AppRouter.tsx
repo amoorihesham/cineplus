@@ -12,10 +12,8 @@ const AppRouter = () => {
 	return (
 		<AnimatePresence mode='wait'>
 			<Routes>
-				{/* <Route path='/' element={<IntroLayout />} /> */}
 				<Route path='/' element={<MainLayout />}>
 					<Route
-						path={'top-rated'}
 						index={true}
 						element={
 							<Suspense fallback={<Spinner />}>
@@ -24,7 +22,15 @@ const AppRouter = () => {
 						}
 					/>
 					<Route
-						path={'popular'}
+						path={'/top-rated'}
+						element={
+							<Suspense fallback={<Spinner />}>
+								<TopRated />
+							</Suspense>
+						}
+					/>
+					<Route
+						path={'/popular'}
 						element={
 							<Suspense fallback={<Spinner />}>
 								<Popular />

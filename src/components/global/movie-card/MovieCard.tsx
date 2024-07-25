@@ -1,9 +1,10 @@
 import { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { BookOpenIcon, PlusIcon } from '@heroicons/react/16/solid';
 import { authContextType, ICardMovieTypeProps } from '../../../types';
 import { AuthContext } from '../../../context';
-import { BookOpenIcon, PlusIcon } from '@heroicons/react/16/solid';
+import { addToFavorite } from '../../../config/functions';
 
 const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 	const { user } = useContext(AuthContext) as authContextType;
@@ -39,7 +40,10 @@ const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 						Details
 					</Link>
 					{user && (
-						<button className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none transition-colors duration-300 bg-shades-primary-600 hover:bg-shades-primary-800'>
+						<button
+							className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none transition-colors duration-300 bg-shades-primary-600 hover:bg-shades-primary-800'
+							onClick={() => addToFavorite(user, movie)}
+						>
 							<PlusIcon className='h-4 me-1' />
 							Favorites
 						</button>

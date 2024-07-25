@@ -14,6 +14,8 @@ import logo from '../../../assets/logo.png';
 
 const Navbar = () => {
 	const { user, signIn, logOut } = useContext(AuthContext) as authContextType;
+
+
 	const dropdownRef = useRef<HTMLDivElement | null>(null);
 
 	return (
@@ -80,7 +82,7 @@ const Navbar = () => {
 								>
 									<li>
 										<Link
-											to={'/'}
+											to={'/favorites'}
 											className='block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'
 										>
 											Favorites

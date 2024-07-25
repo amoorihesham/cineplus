@@ -2,7 +2,6 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { Spinner } from '../components';
-
 const MainLayout = lazy(() => import('../layout/MainLayout'));
 const TopRated = lazy(() => import('../pages/TopRated'));
 const Popular = lazy(() => import('../pages/Popular'));

@@ -6,9 +6,7 @@ const ListItterable = ({ list, sectionClass }: { list: IMovieType[]; sectionClas
 	return (
 		<div
 			className={`${sectionClass} ${
-				list.length === 0
-					? 'block'
-					: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center'
+				list.length === 0 ? 'block' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '
 			} mt-5`}
 		>
 			{list.length <= 0 ? (

@@ -7,6 +7,7 @@ const MainLayout = lazy(() => import('../layout/MainLayout'));
 const TopRated = lazy(() => import('../pages/TopRated'));
 const Popular = lazy(() => import('../pages/Popular'));
 const Series = lazy(() => import('../pages/Series'));
+const Favorites = lazy(() => import('../pages/Favorites'));
 const MoviePage = lazy(() => import('../pages/MoviePage'));
 
 const router = createBrowserRouter([
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
 				element: (
 					<Suspense fallback={<Spinner />}>
 						<MoviePage />
+					</Suspense>
+				),
+			},
+			{
+				path: '/favorites',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<Favorites />
 					</Suspense>
 				),
 			},

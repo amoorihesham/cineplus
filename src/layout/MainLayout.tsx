@@ -5,7 +5,7 @@ const MainLayout = () => {
 	return (
 		<>
 			<Navbar />
-			<div className='min-h-screen flex items-center justify-center container py-pageYpadding'>
+			<div className='min-h-screen flex justify-center container py-pageYpadding'>
 				<Outlet></Outlet>
 			</div>
 			<Footer />

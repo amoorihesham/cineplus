@@ -23,7 +23,7 @@ const TopRated = () => {
 			transition={{ duration: 0.3 }}
 		>
 			<p className='text-center mb-8 bg-shades-primary-600 w-fit m-auto py-1 px-3 rounded-lg text-white capitalize'>
-				this 20 movie top rated of all the time.
+				This is a Beta Version Not Completed Yet.
 			</p>
 			<ListItterable list={data.results} sectionClass='movies-list' />
 		</motion.div>

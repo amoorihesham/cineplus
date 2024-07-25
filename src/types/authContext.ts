@@ -1,6 +1,6 @@
 import { User as firebaseUser } from 'firebase/auth'
 export type authContextType = {
-    user: firebaseUser,
+    user: firebaseUser | undefined,
     signIn: () => void;
     logOut: () => void;
 }

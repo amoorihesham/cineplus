@@ -30,10 +30,7 @@ const InputField = ({
 	};
 	return (
 		<div className='w-1/2 mx-auto'>
-			<label
-				htmlFor='helper-text'
-				className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
-			>
+			<label htmlFor='helper-text' className='block mb-2 text-sm font-medium text-white'>
 				{labelText}
 			</label>
 			<input
@@ -44,7 +41,7 @@ const InputField = ({
 				placeholder={placeHolder}
 				onChange={(e) => handleSearch(e.target.value)}
 			/>
-			<p id='helper-text-explanation' className='mt-2 text-sm text-gray-500 dark:text-gray-400'>
+			<p id='helper-text-explanation' className='mt-2 text-sm text-gray-200'>
 				{explainText}
 			</p>
 		</div>

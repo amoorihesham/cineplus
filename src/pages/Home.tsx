@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ListItterable } from '../components';
 import useTopRated from '../hooks/useTopRated';
 
-const TopRated = () => {
+const Home = () => {
 	const {
 		data: { data },
 
@@ -30,4 +30,4 @@ const TopRated = () => {
 	);
 };
 
-export default TopRated;
+export default Home;

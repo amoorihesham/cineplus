@@ -6,6 +6,7 @@ import {
 	FireIcon,
 	Cog8ToothIcon,
 	TvIcon,
+	MagnifyingGlassIcon,
 } from '@heroicons/react/16/solid';
 import { AuthContext } from '../../../context';
 import { authContextType } from '../../../types';
@@ -14,7 +15,6 @@ import logo from '../../../assets/logo.png';
 
 const Navbar = () => {
 	const { user, signIn, logOut } = useContext(AuthContext) as authContextType;
-
 
 	const dropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -57,6 +57,16 @@ const Navbar = () => {
 							>
 								<TvIcon className='h-6' />
 								Series
+							</Link>
+						</li>
+						<li>
+							<Link
+								to='/search'
+								className='flex items-center justify-center transition-colors duration-300 group/item hover:text-primary-300'
+								aria-current='page'
+							>
+								<MagnifyingGlassIcon className='h-6' />
+								Search
 							</Link>
 						</li>
 						<li className='relative'>

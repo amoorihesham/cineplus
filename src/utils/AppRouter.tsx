@@ -3,9 +3,10 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { Spinner } from '../components';
 const MainLayout = lazy(() => import('../layout/MainLayout'));
-const TopRated = lazy(() => import('../pages/TopRated'));
+const Home = lazy(() => import('../pages/Home'));
 const Popular = lazy(() => import('../pages/Popular'));
 const Series = lazy(() => import('../pages/Series'));
+const Search = lazy(() => import('../pages/Search'));
 const Favorites = lazy(() => import('../pages/Favorites'));
 const MoviePage = lazy(() => import('../pages/MoviePage'));
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
 				element: (
 					<Suspense fallback={<Spinner />}>
 						<AnimatePresence mode='wait'>
-							<TopRated />
+							<Home />
 						</AnimatePresence>
 					</Suspense>
 				),
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
 				element: (
 					<Suspense fallback={<Spinner />}>
 						<Series />
+					</Suspense>
+				),
+			},
+			{
+				path: '/search',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<Search />
 					</Suspense>
 				),
 			},

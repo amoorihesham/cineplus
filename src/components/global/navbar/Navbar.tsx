@@ -12,8 +12,7 @@ import {
 import { AuthContext } from '../../../context';
 import { authContextType } from '../../../types';
 import logo from '../../../assets/logo.png';
-
-import navStyle from './style.json';
+import * as navStyle from './style.json';
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
@@ -43,7 +42,11 @@ const Navigation = () => {
 						<span className='block text-sm'>{user ? user.displayName : 'Geust User'}</span>
 						<span className='block truncate text-sm font-medium'>{user && user.email}</span>
 					</DropdownHeader>
-					{user && <Link to={'/favorites'} className='px-4'>Favorites</Link>}
+					{user && (
+						<Link to={'/favorites'} className='px-4'>
+							Favorites
+						</Link>
+					)}
 					<DropdownDivider />
 					{user ? (
 						<DropdownItem onClick={logOut}>Sign out</DropdownItem>

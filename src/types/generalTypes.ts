@@ -4,6 +4,7 @@ export interface ICardMovieTypeProps {
 		title: string;
 		overview: string;
 		backdrop_path: string;
+		name?: string
 	};
 }
 export interface IMovieType {

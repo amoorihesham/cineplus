@@ -1,7 +1,7 @@
 import { memo, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BookOpenIcon, PlusIcon } from '@heroicons/react/16/solid';
+import { PlusIcon } from '@heroicons/react/16/solid';
 import { authContextType, ICardMovieTypeProps } from '../../../types';
 import { AuthContext } from '../../../context';
 import { addToFavorite } from '../../../config/functions';
@@ -19,36 +19,35 @@ const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 			<Link to={`/movie/${movie.id}`}>
 				<img
 					className='rounded-t-lg'
-					src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+					src={
+						movie.backdrop_path
+							? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`
+							: '/img-placeholder.webp'
+					}
 					alt={`${movie.title} poster`}
 					loading='eager'
+					style={{ aspectRatio: 2 / 1 }}
+					width={366}
+					height={180}
 				/>
 			</Link>
 			<div className='p-5'>
 				<Link to={`/movie/${movie.id}`}>
 					<h5 className='mb-2 text-2xl font-bold tracking-tight text-primary-100 line-clamp-1'>
-						{movie.title}
+						{movie.title || movie.name}
 					</h5>
 				</Link>
-				<p className='mb-3 font-normal text-primary-200 line-clamp-3'>{movie.overview}</p>
-				<div className='btns flex items-center justify-between'>
-					<Link
-						to={`/movie/${movie.id}`}
-						className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg  focus:ring-4 focus:outline-none bg-shades-primary-600 hover:bg-shades-primary-800 transition-colors duration-300'
+				<p className='mb-3 font-normal text-primary-200 line-clamp-3 h-customPH'>{movie.overview}</p>
+
+				{user && (
+					<button
+						className='flex items-center justify-center px-3 py-2 text-sm font-medium text-white rounded-lg focus:ring-4 focus:outline-none transition-colors duration-300 bg-shades-primary-600 hover:bg-shades-primary-800 w-full '
+						onClick={() => addToFavorite(user, movie)}
 					>
-						<BookOpenIcon className='h-4 me-1' />
-						Details
-					</Link>
-					{user && (
-						<button
-							className='inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg focus:ring-4 focus:outline-none transition-colors duration-300 bg-shades-primary-600 hover:bg-shades-primary-800'
-							onClick={() => addToFavorite(user, movie)}
-						>
-							<PlusIcon className='h-4 me-1' />
-							Favorites
-						</button>
-					)}
-				</div>
+						<PlusIcon className='h-4 me-1' />
+						Favorites
+					</button>
+				)}
 			</div>
 		</motion.div>
 	);

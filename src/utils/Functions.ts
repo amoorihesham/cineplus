@@ -14,11 +14,15 @@ export const getPopular = (pageNumber: number) => {
 }
 
 export const getMovieData = (movieId: string) => {
-    return axios.get(`${apiUrls.movieDetails}${movieId}`, getOptions)
+    return axios.get(`${apiUrls.movieDetails}${movieId}?append_to_response=videos`, getOptions)
 
 }
 
+export const getTrending = () => {
 
+
+    return axios.get(`${apiUrls.trending}`, getOptions)
+}
 
 
 

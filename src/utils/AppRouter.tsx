@@ -3,12 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { Spinner } from '../components';
 const MainLayout = lazy(() => import('../layout/MainLayout'));
-const Home = lazy(() => import('../pages/Home'));
-const Popular = lazy(() => import('../pages/Popular'));
-const Series = lazy(() => import('../pages/Series'));
-const Search = lazy(() => import('../pages/Search'));
-const Favorites = lazy(() => import('../pages/Favorites'));
-const MoviePage = lazy(() => import('../pages/MoviePage'));
+const Home = lazy(() => import('../pages/home/Home'));
+const TopRated = lazy(() => import('../pages/top-rated/TopRated'));
+const Popular = lazy(() => import('../pages/popular/Popular'));
+const Series = lazy(() => import('../pages/series/Series'));
+const Search = lazy(() => import('../pages/search/Search'));
+const Favorites = lazy(() => import('../pages/favorites/Favorites'));
+const MoviePage = lazy(() => import('../pages/movie-page/MoviePage'));
 
 const router = createBrowserRouter([
 	{
@@ -22,6 +23,16 @@ const router = createBrowserRouter([
 					<Suspense fallback={<Spinner />}>
 						<AnimatePresence mode='wait'>
 							<Home />
+						</AnimatePresence>
+					</Suspense>
+				),
+			},
+			{
+				path: '/top-rated',
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<AnimatePresence mode='wait'>
+							<TopRated />
 						</AnimatePresence>
 					</Suspense>
 				),

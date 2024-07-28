@@ -6,7 +6,8 @@ const apiUrls = {
     genresUrl: 'https://api.themoviedb.org/3/genre/movie/list?language=en',
     searchUrl: 'https://api.themoviedb.org/3/search/movie?query=',
     movieDetails: 'https://api.themoviedb.org/3/movie/',
-    imagesUrl: 'https://image.tmdb.org/t/p/w500/'
+    imagesUrl: 'https://image.tmdb.org/t/p/w500/',
+    imagesUrlOriginal: 'https://image.tmdb.org/t/p/original/'
 }
 
 const getOptions = {

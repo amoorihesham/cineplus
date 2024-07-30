@@ -21,7 +21,7 @@ const MoviePage = () => {
 	return (
 		<div className='content'>
 			<div className='top-info flex items-center justify-between mb-5 flex-col lg:flex-row'>
-				<h2 className='text-black dark:text-white font-bold text-3xl'>{data.title}</h2>
+				<h2 className='text-white font-bold text-3xl'>{data.title}</h2>
 				<div className='info text-white  font-semibold flex items-center justify-between gap-5'>
 					<p className='flex items-center gap-1 bg-lightNavy  px-2 py-1 rounded-md  justify-center'>
 						<span>

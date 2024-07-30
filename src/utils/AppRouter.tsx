@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Spinner } from '../components';
+import { AnimatePresence } from 'framer-motion';
+
 const MainLayout = lazy(() => import('../layout/MainLayout'));
 const Home = lazy(() => import('../pages/home/Home'));
 const TopRated = lazy(() => import('../pages/top-rated/TopRated'));
@@ -21,9 +22,7 @@ const router = createBrowserRouter([
 				index: true,
 				element: (
 					<Suspense fallback={<Spinner />}>
-						<AnimatePresence mode='wait'>
-							<Home />
-						</AnimatePresence>
+						<Home />
 					</Suspense>
 				),
 			},
@@ -31,9 +30,7 @@ const router = createBrowserRouter([
 				path: '/top-rated',
 				element: (
 					<Suspense fallback={<Spinner />}>
-						<AnimatePresence mode='wait'>
-							<TopRated />
-						</AnimatePresence>
+						<TopRated />
 					</Suspense>
 				),
 			},
@@ -41,9 +38,7 @@ const router = createBrowserRouter([
 				path: '/popular',
 				element: (
 					<Suspense fallback={<Spinner />}>
-						<AnimatePresence mode='wait'>
-							<Popular />
-						</AnimatePresence>
+						<Popular />
 					</Suspense>
 				),
 			},
@@ -83,4 +78,11 @@ const router = createBrowserRouter([
 	},
 ]);
 
-export default router;
+const RouterProviderComponent = () => {
+	return (
+		<AnimatePresence mode='wait'>
+			<RouterProvider router={router} />
+		</AnimatePresence>
+	);
+};
+export default RouterProviderComponent;

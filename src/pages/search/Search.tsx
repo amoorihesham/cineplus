@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { InputField, ListItterable, Spinner } from '../../components';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ListItterable, Spinner, InputField } from '../../components';
 
 const Search = () => {
 	const [results, setResults] = useState([]);
@@ -22,6 +22,7 @@ const Search = () => {
 				resultsSetter={setResults}
 				statusSetter={setIsLoading}
 			/>
+
 			<div className='results mt-10'>
 				{isLoading && results.length === 0 && <Spinner />}
 				<ListItterable list={results} sectionClass='search-results' />

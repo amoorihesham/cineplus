@@ -1,9 +1,10 @@
-import { RouterProvider } from 'react-router-dom';
-import router from './utils/AppRouter';
+// import RouterProviderComponent from './utils/AppRouter';
 import './App.css';
+import { lazy } from 'react';
 
+const RouterProviderComponent = lazy(() => import('./utils/AppRouter'));
 function App() {
-	return <RouterProvider router={router} />;
+	return <RouterProviderComponent />;
 }
 
 export default App;

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { PlusIcon } from '@heroicons/react/16/solid';
 import { authContextType, ICardMovieTypeProps } from '../../../types';
 import { AuthContext } from '../../../context';
+
 import { addToFavorite } from '../../../config/functions';
 
 const MovieCard = ({ movie }: ICardMovieTypeProps) => {
@@ -37,7 +38,9 @@ const MovieCard = ({ movie }: ICardMovieTypeProps) => {
 						{movie.title || movie.name}
 					</h5>
 				</Link>
-				<p className='mb-3 font-normal text-primary-200 line-clamp-3 h-customPH'>{movie.overview}</p>
+				<p className='mb-3 font-normal text-primary-200 line-clamp-3 h-customPH'>
+					{movie.overview}
+				</p>
 
 				{user && (
 					<button

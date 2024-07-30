@@ -3,7 +3,7 @@ import { ClockIcon, LanguageIcon, StarIcon } from '@heroicons/react/16/solid';
 import { apiUrls } from '../../utils';
 import { useMovieData } from '../../hooks';
 import { IGenre, IProductionCompany, ISpokenLanguages } from '../../types';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube';
 
 const MoviePage = () => {
 	const { id } = useParams();
@@ -52,7 +52,7 @@ const MoviePage = () => {
 				/>
 				<div className='trailler flex-grow'>
 					<ReactPlayer
-						url={`https://www.youtube.com/watch?v=${data.videos.results[0].key}`}
+						url={`https://www.youtube.com/watch?v=${data.videos?.results[0]?.key}`}
 						pip={true}
 						width={'100%'}
 						height={'100%'}

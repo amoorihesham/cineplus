@@ -33,8 +33,16 @@ const Navigation = () => {
 					label={
 						<Avatar
 							alt='User settings'
-							img='https://flowbite.com/docs/images/people/profile-picture-5.jpg'
-							rounded
+							img={
+								user
+									? user.photoURL
+									: 'https://flowbite.com/docs/images/people/profile-picture-5.jpg'
+							}
+							rounded={false}
+							status='online'
+							statusPosition='top-right'
+							stacked={true}
+							size='sm'
 						/>
 					}
 				>

@@ -16,7 +16,7 @@ const Home = () => {
 
 	return (
 		<motion.div
-			className='top-rated-page'
+			className='home-page'
 			initial={{ x: '-100%' }}
 			animate={{ x: '0' }}
 			exit={{ y: '-100%' }}

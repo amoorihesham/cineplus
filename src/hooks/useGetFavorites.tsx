@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { AuthContext } from '../context';
 import { authContextType, IMovieType } from '../types';
 
-const useGetFavorites = () => {
+const useGetFavorites= () => {
 	const { user } = useContext(AuthContext) as authContextType;
 	const [movies, setMovies] = useState<IMovieType[] | []>([]);
 

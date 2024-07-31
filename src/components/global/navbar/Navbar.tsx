@@ -35,7 +35,7 @@ const Navigation = () => {
 							alt='User settings'
 							img={
 								user
-									? user?.photoURL
+									? (user?.photoURL as string)
 									: 'https://flowbite.com/docs/images/people/profile-picture-5.jpg'
 							}
 							rounded={false}

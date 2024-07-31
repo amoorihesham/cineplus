@@ -34,8 +34,8 @@ const Navigation = () => {
 						<Avatar
 							alt='User settings'
 							img={
-								user
-									? user.photoURL
+								user != null
+									? user?.photoURL
 									: 'https://flowbite.com/docs/images/people/profile-picture-5.jpg'
 							}
 							rounded={false}

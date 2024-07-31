@@ -34,7 +34,7 @@ const Navigation = () => {
 						<Avatar
 							alt='User settings'
 							img={
-								user != null
+								user
 									? user?.photoURL
 									: 'https://flowbite.com/docs/images/people/profile-picture-5.jpg'
 							}
